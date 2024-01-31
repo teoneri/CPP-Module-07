@@ -6,7 +6,7 @@
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:37:05 by mneri             #+#    #+#             */
-/*   Updated: 2024/01/25 17:01:36 by mneri            ###   ########.fr       */
+/*   Updated: 2024/01/31 15:26:55 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ class Array
 		{
 			_n = 0;
 			_array = new T[0];
+		}
+		~Array()
+		{
+			delete[] _array;
 		}
 		Array(unsigned int n)
 		{
@@ -41,7 +45,7 @@ class Array
 		{
 			if(this != &other)
 			{
-				delete _array;
+				delete[] _array;
 				_n = other._n;
 				_array = new T[_n];
 				for(int i = 0; i < _n; i++)
